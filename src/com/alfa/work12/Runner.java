@@ -4,7 +4,15 @@ public class Runner {
     public void run(){
         MyPhoneBook phoneBook = new MyPhoneBook();
         fillPhoneBook(phoneBook);
+        printDivider();
+        System.out.println("Телефонная книга:");
         System.out.println(phoneBook.printPhoneBook());
+        printDivider();
+        System.out.println("Сортировка по имени:");
+        System.out.println(phoneBook.sortByName());
+        printDivider();
+        System.out.println("Сортировка по номеру телефона:");
+        System.out.println(phoneBook.sortByPhoneNumber());
 
     }
 
@@ -23,5 +31,9 @@ public class Runner {
         } else  {
             System.out.println("Книжка переполнена! Контакт не добавлен.");
         }
+    }
+
+    public void printDivider () {
+        System.out.println("----------------------");
     }
 }

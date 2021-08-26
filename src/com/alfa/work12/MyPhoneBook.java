@@ -1,6 +1,7 @@
 package com.alfa.work12;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class MyPhoneBook {
     private PhoneRecord[] phoneNumbers;
@@ -30,6 +31,32 @@ public class MyPhoneBook {
             temp.append(element + "\n");
         }
         return temp.toString();
+    }
+
+    public String sortByName() {
+        PhoneRecord[] temp = Arrays.copyOf(phoneNumbers, counter);
+        Arrays.sort(temp, new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                String name1 = ((PhoneRecord) o1).name;
+                String name2 = ((PhoneRecord) o2).name;
+                return name1.compareTo(name2);
+            }
+        });
+        return convertRecordsToString(temp);
+    }
+
+    public String sortByPhoneNumber() {
+        PhoneRecord[] temp = Arrays.copyOf(phoneNumbers, counter);
+        Arrays.sort(temp, new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                String phone1 = ((PhoneRecord) o1).phone;
+                String phone2 = ((PhoneRecord) o2).phone;
+                return phone1.compareTo(phone2);
+            }
+        });
+        return convertRecordsToString(temp);
     }
 
     class PhoneRecord {
